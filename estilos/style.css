@@ -1,3 +1,23 @@
+/* :root {
+  --color-primario: #FFFFFF;
+  --color-secundario: #FFFFFF;
+  --color-terciario: #FFFFFF;
+  --letra-principal:
+  --letra-secundaria:
+  --letra-chica: 14px;
+  --letra-mediana:16px;
+  --letra-grande: 18px;
+
+  Propuesta: Mas adelante, para unificar los colores y tamaños de letras creé estas variables por temática.
+
+} */
+
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+
 .body-index {
   background-image: url("../assets/images/background.png"); 
   background-size: cover;
@@ -59,10 +79,21 @@ nav ul li {
 
 ul li a {
   color: black;
-    text-decoration: none; 
+  text-decoration: none; 
   padding: 10px 10px; 
   border-radius: 5px; 
   transition: background-color 0.3s; 
+}
+
+.nav-menu-usuario {
+  position: relative;
+  bottom: 46px;
+  text-align: end;
+  margin-right: 50px;
+}
+
+.nav-menu-usuario a img {
+  margin: 0 5px;
 }
 
 .body-contact{
@@ -109,7 +140,7 @@ form button:hover {
   background-color: #45a049;
 }
 
-footer {
+.footer {
   background-color: #64c27b;
   color: #fff;
   position: fixed;
@@ -150,4 +181,200 @@ footer {
 .social-media ul li a:hover {
   text-decoration: underline;
   height: 10px;
+}
+
+/*De acá para abajo los estilos de la página "Productos" */
+.nav-alternativo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #64c27b;
+  height: 60px;
+  position: relative;
+  top: 15px;
+}
+
+.logo-alternativo {
+  position: relative;
+  background-color: rgb(188, 230, 198);
+  border: black;
+  border-style: dashed;
+  border-radius: 50%;
+  left: 10%;
+}
+
+.nav-menu-alternativo ul {
+  margin: 0;
+}
+
+.nav-usuario-alternativo {
+  position: relative;
+  right: 10%;
+}
+
+.boton-menu-lateral {
+  visibility: hidden;
+}
+
+.modal-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-login div {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.modal-login input {
+  width: 70%;
+}
+
+.modal-login-registro {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+
+.buscador-productos {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.buscador-productos input {
+  width: 20rem;
+  border: 2px solid #64c27b;
+  padding: 5px 0 5px 10px;
+  border-radius: 8px;
+}
+
+.filtrar-productos-lateral {
+  display: none;
+}
+
+.contenedor-productos {
+  display: flex;
+  margin: 5% 0;
+}
+
+.contenedor-productos div ul li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 4fr)); /*Asigna automaticamente la cantidad de productos según el ancho de la pantalla con un máximo de 4 productos*/
+  gap: 20px;
+  width: 80%;
+  margin: 0 auto
+}
+
+.productos-items {
+  border-radius: 48px 8px 48px 8px;
+}
+
+.productos-items:hover {
+  box-shadow: 0 10px 20px #00000060;
+}
+
+.productos-items figure {
+  margin: 0;
+  padding: 0;
+  background-color: #64c27b;
+  border-radius: 48px 8px 0 0;
+}
+
+.productos-items img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  border-radius: 48px 8px 0 0;
+}
+
+.productos-items-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productos-items-info h3 {
+  margin: 10px 0;
+}
+.productos-items-info p {
+  margin: 0 0 20px 0;
+}
+
+.productos-items-info button {
+  padding: 8px 0;
+  cursor: pointer;
+  background-color:#4CAF50;
+  width: 50%;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.whatsapp {
+  width: 72px;
+  position: fixed;
+  right: 2%;
+  bottom: 25px;
+  transition: all 0.3s;
+}
+
+.whatsapp:hover {
+  transition: all 0.3s;
+  width: 96px;
+}
+
+.footer-alternativo {
+  position: static;
+}
+
+
+
+
+@media (max-width:840px) {
+
+.nav-menu-alternativo {
+  visibility: hidden;
+}
+
+.nav-usuario-alternativo {
+  visibility: hidden; /*Por alguna razón display:none no funcionaba y tuve que usar visibility en su lugar para ocultar el contenido. A diferencia de display:none el elemento que se oculta con visibility sigue ocupando un espacio aunque no se vea*/
+  position: absolute; /*Al ocupar un espacio y achicar la pantalla alteraba la posición de los otros elementos, entonces se me ocurrió usar position:absolute para quitarlo del flujo de la página y se comporte como un display:none*/
+}
+
+.boton-menu-lateral {
+  visibility: visible;
+  right: 0;
+}
+
+.contenedor-productos div:first-child {
+  display: none;
+}
+
+.filtrar-productos-lateral li {
+  list-style: none;
+}
+
+.filtrar-productos-lateral input[type="checkbox"] {
+  width: auto;
+  margin: 6px 0
+}
+
+.filtrar-productos-lateral {
+  display: block;
+}
+
+.items-menu-lateral a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+}
 }

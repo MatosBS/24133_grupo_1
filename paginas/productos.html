@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../estilos/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Pinka Online</title>
+</head>
+<body class="body-contact">
+    <header>
+        <nav class="nav-alternativo">  
+            <div class="logo-alternativo">
+                <a href="#"><img class = "logo-header" src="../assets/images/logo_header.webp" alt="Logo"></a>
+            </div>
+            <div class="nav-menu-alternativo">
+                <ul>
+                    <li><a class ="nav-option" href="../index.html">Inicio</a></li>
+                    <li><a class ="nav-option" href="#">Productos</a></li>
+                    <li><a class ="nav-option" href="#">Servicios</a></li>
+                    <li><a class ="nav-option" href="/paginas/contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="nav-usuario-alternativo">
+                <a href="#"><img src="../assets/icons/cart-regular-36.png" alt="carrito"></a>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-login-form"><img src="../assets/icons/user-circle-regular-36.png" alt="login"></button>
+                <button class="btn boton-menu-lateral" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="../assets/icons/menu-regular-36.png" alt="menu"></button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <!-- <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5> -->
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body items-menu-lateral">
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="/paginas/contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </nav>
+        <div class="modal fade" id="modal-login-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <h5>PinkaOnline</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-login">
+                        <p>Iniciá sesión</p>
+                        <div>
+                            <label for="nombre">Usuario</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Escribí tu usuario en PinkaOnline">
+                        </div>
+                        <div>
+                            <label for="pass">Contraseña</label>
+                            <input type="password" id="pass" placeholder="Escribí tu contraseña">
+                        </div>
+                    </div>
+                    <div class="modal-login-registro">
+                        <a href="#">Registrate</a>
+                        <a href="#">Olvidé mi contraseña</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary">Enviar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </header>
+    <main>
+        <div class="buscador-productos">
+            <input type="text" placeholder="Encontrá lo que estás buscando">
+        </div>
+        <div class="filtrar-productos-lateral">
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"> <img src="../assets/icons/filter-regular-36.png" alt="filtrar"></button>              
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filtrar productos</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div>
+                    <ul>
+                        <li><input type="checkbox" id="antiage"> <label for="antiage">Antiage</label></li>
+                        <li><input type="checkbox" id="capilares"> <label for="capilares">Capilares</label></li>
+                        <li><input type="checkbox" id="corporal"> <label for="corporal">Corporal</label></li>
+                        <li><input type="checkbox" id="cuidados"> <label for="cuidados">Cuidados básicos</label></li>
+                        <li><input type="checkbox" id="masculinos"> <label for="masculinos">Cuidados masculinos</label></li>
+                        <li><input type="checkbox" id="depilacion"> <label for="depilacion">Depilación</label></li>
+                        <li><input type="checkbox" id="dr"> <label for="dr">Dr. Enero</label></li>
+                        <li><input type="checkbox" id="fragancias"> <label for="fragancias">Fragancias</label></li>
+                        <li><input type="checkbox" id="gabinete"> <label for="gabinete">Gabinete</label></li>
+                        <li><input type="checkbox" id="humectacion"> <label for="humectacion">Hidratación/Tonificación</label></li>
+                        <li><input type="checkbox" id="beauty"> <label for="beauty">Linea Beauty</label></li>
+                        <li><input type="checkbox" id="manos"> <label for="manos">Manos y pies</label></li>
+                        <li><input type="checkbox" id="delicadas"> <label for="delicadas">Pieles delicadas</label></li>
+                        <li><input type="checkbox" id="grasas"> <label for="grasas">Pieles grasas</label></li>
+                        <li><input type="checkbox" id="solar"> <label for="solar">Protección solar</label></li>
+                        <li><input type="checkbox" id="celular"> <label for="celular">Renovación celular</label></li>
+                        <li><input type="checkbox" id="sensorial"> <label for="sensorial">Sensorial</label></li>
+                        <li><input type="checkbox" id="teens"> <label for="teens">Teens</label></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="contenedor-productos">
+            <div>
+                <ul>
+                    <li><input type="checkbox" id="antiage"> <label for="antiage">Antiage</label></li>
+                    <li><input type="checkbox" id="capilares"> <label for="capilares">Capilares</label></li>
+                    <li><input type="checkbox" id="corporal"> <label for="corporal">Corporal</label></li>
+                    <li><input type="checkbox" id="cuidados"> <label for="cuidados">Cuidados básicos</label></li>
+                    <li><input type="checkbox" id="masculinos"> <label for="masculinos">Cuidados masculinos</label></li>
+                    <li><input type="checkbox" id="depilacion"> <label for="depilacion">Depilación</label></li>
+                    <li><input type="checkbox" id="dr"> <label for="dr">Dr. Enero</label></li>
+                    <li><input type="checkbox" id="fragancias"> <label for="fragancias">Fragancias</label></li>
+                    <li><input type="checkbox" id="gabinete"> <label for="gabinete">Gabinete</label></li>
+                    <li><input type="checkbox" id="humectacion"> <label for="humectacion">Hidratación/Tonificación</label></li>
+                    <li><input type="checkbox" id="beauty"> <label for="beauty">Linea Beauty</label></li>
+                    <li><input type="checkbox" id="manos"> <label for="manos">Manos y pies</label></li>
+                    <li><input type="checkbox" id="delicadas"> <label for="delicadas">Pieles delicadas</label></li>
+                    <li><input type="checkbox" id="grasas"> <label for="grasas">Pieles grasas</label></li>
+                    <li><input type="checkbox" id="solar"> <label for="solar">Protección solar</label></li>
+                    <li><input type="checkbox" id="celular"> <label for="celular">Renovación celular</label></li>
+                    <li><input type="checkbox" id="sensorial"> <label for="sensorial">Sensorial</label></li>
+                    <li><input type="checkbox" id="teens"> <label for="teens">Teens</label></li>
+                </ul>
+            </div>
+            <div class="productos">
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/Balsamo-Dinamizante-Celular.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 1</h3>
+                        <p>$2000</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/Complejo-Antiage-Omega-Plus.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 2</h3>
+                        <p>$1500</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/Crema Nutritiva Con Vitamina AyE.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 3</h3>
+                        <p>$8700</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/Diamond Lips_Perfil_12ml.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 4</h3>
+                        <p>$12500</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/DiamondEyes_EstucheLateral.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 5</h3>
+                        <p>$18300</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/Filler-Diamond-Antiage.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 6</h3>
+                        <p>$11200</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/pomo_GelContornoDeOjos.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 7</h3>
+                        <p>$6900</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/Renova Defense.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 8</h3>
+                        <p>$4600</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/Serum-Liposomado.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 9</h3>
+                        <p>$14000</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="productos-items">
+                    <figure>
+                        <img src="../assets/products/Stress Control Detox_ENVASO.png" alt="Producto">
+                    </figure>
+                    <div class="productos-items-info">
+                        <h3>Producto 10</h3>
+                        <p>$9000</p>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#"><img src="../assets/icons/whatsapp-icon.png" alt="whatsapp" class="whatsapp"></a>
+    </main>
+    <footer>
+        <div class="footer footer-alternativo">
+          <div class="contact-info">
+            <h3>Contacto</h3>
+            <p><strong>Dirección:</strong> Direccion</p>
+            <p><strong>Teléfono:</strong> 12345</p>
+            <p><strong>Email:</strong> info@pinkaonline.com</p>
+          </div>
+          <div class="social-media">
+            <h3>Redes Sociales</h3>
+            <ul>
+              <li><a class = "media-link" href="#">Facebook</a></li>
+              <li><a class = "media-link" href="#">Twitter</a></li>
+              <li><a class = "media-link" href="#">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
