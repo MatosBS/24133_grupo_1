@@ -153,6 +153,9 @@ header {
                 margin: 1rem 0;
                 font-size: var(--letra-grande);
                 font-family: var(--letra-principal);
+                text-overflow: ellipsis;
+                overflow: hidden !important;
+                white-space: nowrap;
             }
 
             & p {
