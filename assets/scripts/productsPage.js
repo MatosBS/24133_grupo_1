@@ -1,26 +1,20 @@
-var getProducts = function (appliedFilters) {
+var getProducts = function (appliedFilters = []) {
     var productsListContent = ``;
-    const getHtmlTagForProducts = function (product) {
+
+    products.filter(searchedProducts => appliedFilters.includes(searchedProducts.type.toLowerCase())).forEach(product => {
         var imgSrc = `../assets/products/${product.name.replaceAll(' ', '_')}.png`;
-        return `<article class="products__items">
-        <figure>
-        <img src="${imgSrc}">
-        </figure>
-        <div class="products__items_info">
-        <h3 title="${product.name}">${product.name}</h3>
-        <p>${product.price.toLocaleString('us-US', { style: 'currency', currency: 'USD' })}</p>
-        <button class="buttons">Añadir al carrito</button>
-        </div>
-        </article>
+        productsListContent += `<article class="products__items">
+            <figure>
+            <img src="${imgSrc}">
+            </figure>
+            <div class="products__items_info">
+            <h3 title="${product.name}">${product.name}</h3>
+            <p>${product.price.toLocaleString('us-US', { style: 'currency', currency: 'USD' })}</p>
+            <button class="buttons">Añadir al carrito</button>
+            </div>
+            </article>
         `;
-    };
-    !appliedFilters ?
-        products.forEach(product => {
-            productsListContent += getHtmlTagForProducts(product);
-        })
-    : products.filter(searchedProducts => appliedFilters.includes(searchedProducts.type.toLowerCase())).forEach(product => {
-            productsListContent += getHtmlTagForProducts(product);
-        });
+    });
     
     return productsListContent;
 };
@@ -39,22 +33,23 @@ var getAllCategories = function () {
     var productsTypesListContent = ``;
     amountByCategory.forEach(category => {
         productsTypesListContent += `
-            <li><input type="checkbox" id="${category.category.toLowerCase()}" class="products__category_category"> <label for="${category.category.toLowerCase()}">${category.category} (${category.count})</label></li>
+            <li><input type="checkbox" checked id="${category.category.toLowerCase()}" class="products__category_category"> <label for="${category.category.toLowerCase()}">${category.category} (${category.count})</label></li>
         `;
     });
     return productsTypesListContent;
 };
     
-
-
-function updateFilters() {
+function getAppliedFilters() {
     var appliedFilters = document.getElementsByClassName("products__category_category")
     let checkedFilters = Array.prototype.filter.call(
         appliedFilters,
         (testElement) => testElement.checked,
     );
-    checkedFilters = checkedFilters.map((el) => el.id);
-    document.getElementById("productsList").innerHTML = getProducts(checkedFilters);
+    return checkedFilters.map((el) => el.id);
+};
+
+function updateFilters() {
+    document.getElementById("productsList").innerHTML = getProducts(getAppliedFilters);
 };
 
 function load() {
@@ -66,4 +61,4 @@ function load() {
 
 document.addEventListener("DOMContentLoaded", load, false)
 document.getElementById("categories").innerHTML += getAllCategories();
-document.getElementById("productsList").innerHTML = getProducts();
+document.getElementById("productsList").innerHTML = getProducts(getAppliedFilters());
