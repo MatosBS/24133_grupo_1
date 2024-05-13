@@ -49,7 +49,7 @@ function getAppliedFilters() {
 };
 
 function updateFilters() {
-    document.getElementById("productsList").innerHTML = getProducts(getAppliedFilters);
+    document.getElementById("productsList").innerHTML = getProducts(getAppliedFilters());
 };
 
 function load() {
