@@ -2,7 +2,7 @@ var getProducts = function (appliedFilters = []) {
     var productsListContent = ``;
 
     products.filter(searchedProducts => appliedFilters.includes(searchedProducts.type.toLowerCase())).forEach(product => {
-        var imgSrc = `../assets/products/${product.name.replaceAll(' ', '_')}.png`;
+        var imgSrc = `./assets/products/${product.name.replaceAll(' ', '_')}.png`;
         productsListContent += `<article class="products__items">
             <figure>
             <img src="${imgSrc}">

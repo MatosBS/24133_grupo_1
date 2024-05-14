@@ -2,21 +2,21 @@ var headerContent = `
 <nav class="navbar">
             <div>
                 <a href="#">
-                    <img src="./../assets/images/logo_header.webp" alt="Pinka logo" class="navbar__logo-img">
+                    <img src="./assets/images/logo_header.webp" alt="Pinka logo" class="navbar__logo-img">
                 </a>
             </div>
             <div>
                 <ul class="navbar__list_container">
-                    <li><a href="./index.html" class="navbar__list-items">Inicios</a></li>
+                    <li><a href="./index.html" class="navbar__list-items">Inicio</a></li>
                     <li><a href="./productos.html" class="navbar__list-items">Productos</a></li>
                     <li><a href="./servicios.html" class="navbar__list-items">Servicios</a></li>
                     <li><a href="./contacto.html" class="navbar__list-items">Contacto</a></li>
                 </ul>
             </div>
             <div class="navbar__users_elements">
-                <a href="#"><img src="./../assets/icons/cart-regular-36.png" alt="carrito"></a>
+                <a href="#"><img src="./assets/icons/cart-regular-36.png" alt="carrito"></a>
                 <button class="navbar__desktop_menu buttons">Inicia sesión</button>
-                <label class="navbar__mobile_menu" for="menu_hamburguesa"><img src="./../assets/icons/menu-regular-36.png"
+                <label class="navbar__mobile_menu" for="menu_hamburguesa"><img src="./assets/icons/menu-regular-36.png"
                         alt="menu mobile"></label>
                 <input class="navbar__hamburguesa_check" type="checkbox" id="menu_hamburguesa">
             </div>
@@ -41,9 +41,9 @@ var footerContent = `
             </div>
             <div class="footer__social">
                 <p>Encontranos en las redes:</p>
-                <a href="#"><img src="./../assets/icons/fb.svg" alt="Facebook pinka"></a>
-                <a href="#"><img src="./../assets/icons/ig.svg" alt="Instagram pinka"></a>
-                <a href="#"><img src="./../assets/icons/x.svg" alt="X social pinka"></a>
+                <a href="#"><img src="./assets/icons/fb.svg" alt="Facebook pinka"></a>
+                <a href="#"><img src="./assets/icons/ig.svg" alt="Instagram pinka"></a>
+                <a href="#"><img src="./assets/icons/x.svg" alt="X social pinka"></a>
             </div>
         </div>
 `;
