@@ -7,7 +7,7 @@ var headerContent = `
             </div>
             <div>
                 <ul class="navbar__list_container">
-                    <li><a href="./index.html" class="navbar__list-items">Inicio</a></li>
+                    <li><a href="./index.html" class="navbar__list-items">Inicios</a></li>
                     <li><a href="./productos.html" class="navbar__list-items">Productos</a></li>
                     <li><a href="./servicios.html" class="navbar__list-items">Servicios</a></li>
                     <li><a href="./contacto.html" class="navbar__list-items">Contacto</a></li>
