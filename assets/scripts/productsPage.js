@@ -1,7 +1,14 @@
-var getProducts = function (appliedFilters = []) {
-    var productsListContent = ``;
+var getProducts = function (appliedFilters = [], searchedText) {
+    let productsListContent = ``;
+    let productsFilters = products.filter(searchedProducts => appliedFilters.includes(searchedProducts.type.toLowerCase()));
+    
+    if (searchedText) {
+        searchedText = searchedText.trim();
+        searchedText = searchedText.toLowerCase();
+        productsFilters = productsFilters.filter(searchedProducts => searchedProducts.name.toLocaleLowerCase().includes(searchedText));
+    };
 
-    products.filter(searchedProducts => appliedFilters.includes(searchedProducts.type.toLowerCase())).forEach(product => {
+    productsFilters.forEach(product => {
         var imgSrc = `./assets/products/${product.name.replaceAll(' ', '_')}.png`;
         productsListContent += `<article class="products__items">
             <figure>
@@ -49,16 +56,28 @@ function getAppliedFilters() {
 };
 
 function updateFilters() {
-    document.getElementById("productsList").innerHTML = getProducts(getAppliedFilters());
+    var searchInput = document.getElementById('searchInput');
+    var products = getProducts(getAppliedFilters(), searchInput.value);
+
+    if (products.length > 0) {
+        document.getElementById("productsList").innerHTML = products;
+    } else {
+        document.getElementById("productsList").innerHTML = `<div id="error-message">
+        <p>Lo sentimos, no encontramos productos.</p><p>Por favor, intenta ajustar tus filtros de búsqueda.</p>
+      </div>`;
+    };
 };
 
 function load() {
-    var elements = document.getElementsByClassName("products__category_category")
+    var elements = document.getElementsByClassName("products__category_category");
     for (let i = 0; i < elements.length; i++) {
-        elements[i].addEventListener("click", updateFilters, false)
-    }
+        elements[i].addEventListener("click", updateFilters, false);
+    };
+
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener("keyup", updateFilters, false);
 };
 
-document.addEventListener("DOMContentLoaded", load, false)
+document.addEventListener("DOMContentLoaded", load, false);
 document.getElementById("categories").innerHTML += getAllCategories();
 document.getElementById("productsList").innerHTML = getProducts(getAppliedFilters());
