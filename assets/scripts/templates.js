@@ -1,3 +1,5 @@
+import { getQuantityFromProductInCart } from './functions.js';
+
 export const templates = {
     categoryCheckbox: (category) => {
         return `<li><input type="checkbox" checked id="${category.category.toLowerCase()}" class="products__category_category"> <label for="${category.category.toLowerCase()}">${category.category} (${category.count})</label></li>`;
@@ -5,14 +7,16 @@ export const templates = {
 
     productItem: (product) => {
         var imgSrc = `./assets/products/${product.name.replaceAll(' ', '_')}.png`;
-        return `<article class="products__items">
+        return `<article class="products__items" id="${product.id}">>
         <figure>
         <img src="${imgSrc}">
         </figure>
         <div class="products__items_info">
         <h3 title="${product.name}">${product.name}</h3>
         <p>${product.price.toLocaleString('us-US', { style: 'currency', currency: 'USD' })}</p>
-        <button class="buttons">Añadir al carrito</button>
+        <button class="buttons add-to-cart">+</button>
+        <p class="products__items_info--quantity">${getQuantityFromProductInCart(product.id)}</p>
+        <button class="buttons remove-from-cart">-</button>
         </div>
         </article>`;
     },

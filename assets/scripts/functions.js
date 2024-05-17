@@ -1,9 +1,29 @@
 import { productsPageElements } from './dom.js';
-import { templates } from './templates.js';
 
 async function getAllProductsJson () {
     let allProducts = await fetch('./assets/data/products.json').then(res => res.json());
     return allProducts;
+};
+
+export function updateAmountInHeader(amount) {
+    document.getElementById("cartAmount").innerHTML = amount;
+}
+
+export function getTotalAmountInCart () {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    return cart.products.map(product => product.quantity).reduce((a,b)=>a+b);
+}
+export function
+ getQuantityFromProductInCart (productId) {
+    let productsInCart = JSON.parse(localStorage.getItem('cart'));
+    let product = productsInCart.products.find(product => product.productId == productId);
+    
+    return product ? product.quantity : 0;
+};
+
+export function updateQuantityFromProductInUI (element, productId) {
+    let quantityElement = element.closest('article').querySelector('.products__items_info--quantity');
+    quantityElement.innerHTML =  getQuantityFromProductInCart(productId);
 };
 
 /**
@@ -12,7 +32,7 @@ async function getAllProductsJson () {
  * @param {*} searchedText String con el texto ingresado por el usuario
  */
 export async function getProducts (appliedFilters = [], searchedText)  {
-        let productsListContent = ``;
+        let productsListContent = [];
         let allProducts = await getAllProductsJson();
         let productsFilters = allProducts.filter(searchedProducts => appliedFilters.includes(searchedProducts.type.toLowerCase()));
         
@@ -23,7 +43,7 @@ export async function getProducts (appliedFilters = [], searchedText)  {
         };
 
         for (const product of productsFilters) {
-            productsListContent += templates.productItem(product);
+            productsListContent.push(product);
         };
         return productsListContent;
 };
@@ -39,32 +59,6 @@ export function getAppliedFilters () {
     return checkedFilters.map((el) => el.id);
 };
 
-export async function updateFilters () {
-    var searchInput = document.getElementById('searchInput');
-    getProducts(getAppliedFilters(), searchInput.value).then(products => {
-        if (products.length > 0) {
-            productsPageElements.productsList.innerHTML = products;
-        } else {
-            productsPageElements.productsList.innerHTML = templates.noProductsAvailableLabel();
-        };    
-    })
-};
-
-export function load () {
-    var elements = document.getElementsByClassName("products__category_category");
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].addEventListener("click", updateFilters, false);
-    };
-
-    var searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener("keyup", updateFilters, false);
-};
-
-/**
- * 
- * @returns Array de Tags html con los nombres de las categorías
- */
-
 export async function getAllCategories () {
     var amountByCategory = [];
     let allProducts = await getAllProductsJson();
@@ -76,10 +70,33 @@ export async function getAllCategories () {
             amountByCategory[index].count++;
         }
     };
+    return amountByCategory;
+};
 
-    var productsTypesListContent = ``;
-    amountByCategory.forEach(category => {
-        productsTypesListContent += templates.categoryCheckbox(category);
+export function addItemToProductsArray(productsJson, productId) {
+    let index = productsJson.products.findIndex(product => {
+        return product.productId == productId
     });
-    return productsTypesListContent;
+    if (index < 0) {
+        productsJson.products.push({ productId: productId, quantity: 1 });
+    } else {
+        productsJson.products[index].quantity++;
+    };
+    productsJson.count++;
+    return productsJson;
+};
+
+export function removeItemFromProductsArray(productsJson, productId) {
+    let index = productsJson.products.findIndex(product => {
+        return product.productId == productId
+    });
+    if (index => 0) {
+        if (productsJson.products[index].quantity == 1) {
+            productsJson.products = productsJson.products.filter(product => product.productId !== productId);
+        } else {
+            productsJson.products[index].quantity--;
+        }
+        productsJson.count--;
+    };
+    return productsJson;
 };

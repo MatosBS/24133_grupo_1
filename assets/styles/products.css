@@ -81,11 +81,17 @@
             & p {
                 font-size: var(--letra-mediana);
                 font-weight: bold;
+                width: 100%;
+                text-align: center;
+            }
+
+            & p.products__items_info--quantity {
+                width: 25%;
             }
 
             & button {
                 margin: 1rem 0;
-                width: 100%;
+                width: 25%;
                 border-radius: 0;
             }
         }
