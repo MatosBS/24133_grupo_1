@@ -1,3 +1,5 @@
+import { footerElements, headerElements } from './dom.js';
+
 var headerContent = `
 <nav class="navbar">
             <div>
@@ -26,7 +28,7 @@ var headerContent = `
         </nav>
 `;
 
-document.getElementById("mainHeader").innerHTML = headerContent;
+headerElements.header.innerHTML = headerContent;
 
 var footerContent = `
 <div>
@@ -51,4 +53,4 @@ var footerContent = `
         </div>
 `;
 
-document.getElementById("mainFooter").innerHTML = footerContent;
+footerElements.footer.innerHTML = footerContent;
