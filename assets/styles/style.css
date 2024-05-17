@@ -54,7 +54,7 @@ header {
             width: 12rem;
             background-color: white;
             border-radius: 50%;
-            border: 1px dashed var(--color-secundario);
+            border: 1px dashed black;
         }
 
         & .navbar__list_container {
@@ -105,13 +105,24 @@ header {
     }
 
     & .products__controls_search {
-        display: flex;
-        align-items: center;
+        
+        & form {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            position: relative;
+        }
 
-        & button {
-            color: var(--color-inputs);
-            border: none;
-            background-color: none;
+        & input {
+            height: 3rem;
+            border: 1px solid var(--color-inputs);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        & label {
+            position: absolute;
+            right: 0.5rem;
         }
     }
 }
@@ -130,6 +141,7 @@ header {
     & .products__items {
         border-radius: 48px 8px 48px 8px;
         overflow: hidden;
+        border: 2px solid #00000000;
 
         & figure {
             background-color: var(--color-fondo);
@@ -174,6 +186,7 @@ header {
     .products__items:hover {
         box-shadow: 0 10px 20px #00000060;
         border: 2px solid var(--color-inputs);
+        box-sizing: content-box;
       }
 }
 
@@ -292,9 +305,15 @@ footer {
         & iframe {
             margin: 1rem;
         }
+    }
+
+    & .footer__contacto_info {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0 2rem 3rem;
 
         & p {
-            margin: 1rem 0;
+            margin: 1rem 2rem;
             font-size: var(--letra-chica);
             font-family: var(--letra-secundaria);
         }
@@ -307,6 +326,10 @@ footer {
         justify-content: space-evenly;
         padding: 1rem;
     }
+}
+
+iframe {
+    display: none;
 }
 
 @media (min-width:768px) {
@@ -323,7 +346,7 @@ footer {
             top: 4rem;
     
             & .navbar__logo-img {
-                width: 12rem;
+                width: 15rem;
                 background-color: white;
                 border-radius: 50%;
                 border: 1px dashed var(--color-inputs);
@@ -362,6 +385,7 @@ footer {
             }
         }   
     }
+
     .servicios p {
         text-align: center;
     }
@@ -376,6 +400,8 @@ footer {
         & .servicios__container {
             min-width: 31rem;
             max-width: 60rem;
+
+            /*Poner otro media query con ancho máximo mas grande para estos div*/
         }
     }
 
@@ -395,13 +421,16 @@ footer {
     }
 
     .products__controls_search input {
-        width: 25rem;
-    
+        width: 30rem;
+        height: 3rem;
+        border: 1px solid var(--color-inputs);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
     }
 
     .products__container {
         display: flex;
-        align-items: center;
+        /* align-items: center; */
         font-size: var(--letra-chica);
         font-family: var(--letra-secundaria );
     
@@ -423,12 +452,15 @@ footer {
         width: 90%;
         margin: 0 auto;
 
-        & .footer__contacto p {
-            margin-left: 5rem;
-            width: 50%;
+        & 
+
+        & .footer__contacto_info p {
+            margin-left: 1.5rem;
+            }
         }
 
         & .footer__social {
+            width: 20%;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1rem;
@@ -438,5 +470,9 @@ footer {
                 width: 100%;
             }
         }
-    }
+
+        iframe {
+            display: block;
+        }
 }
+
