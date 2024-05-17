@@ -14,7 +14,10 @@ var headerContent = `
                 </ul>
             </div>
             <div class="navbar__users_elements">
-                <a href="#"><img src="./assets/icons/cart.svg" alt="carrito"></a>
+                <a href="#">
+                    <img src="./assets/icons/cart.svg" alt="carrito">
+                    <span id="cartAmount" class="cartAmount badge badge-danger">0</span> 
+                </a>
                 <button class="navbar__desktop_menu buttons">Inicia sesión</button>
                 <label class="navbar__mobile_menu" for="menu_hamburguesa"><img src="./assets/icons/menu.svg"
                         alt="menu mobile"></label>
