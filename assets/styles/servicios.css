@@ -1,0 +1,119 @@
+.servicios {
+    margin: 0 0.8rem;
+
+    & h2 {
+        text-align: center;
+        margin: 2rem 0 1rem 0;
+        font-size: var(--letra-grande);
+    }
+
+    & p {
+        font-size: var(--letra-chica);
+        text-align: justify;
+        margin: 2rem 0 1rem 0;
+        font-family: var(--letra-secundaria);
+    }
+
+    & .servicios__container {
+
+        & h3 {
+            font-size: var(--letra-mediana);
+            margin: 4rem 0 2rem 0;
+            text-align: center;
+        }
+
+        & img {
+            width: 100%;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        & ul li {
+            margin-left: 1rem;
+            list-style: square;
+            font-size: var(--letra-chica);
+            font-family: var(--letra-secundaria);
+        }
+
+        & button {
+            display: block;
+            margin: 1.5rem auto;
+        }
+    }
+
+    .boton_reserva {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .servicios__turnos_calendario {
+        width: 80%;
+        margin: 3rem auto;
+        text-align: center;
+        font-size: var(--letra-chica);
+
+        & ol {
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            & li {
+                margin: 0.5rem 0;
+            }
+
+            & .calendario__inicio {
+                grid-column-start: 3;
+            }
+            
+        }
+    }
+
+    .servicios__turnos_horarios {
+        width: 80%;
+        margin: 3rem auto;
+        text-align: center;
+        font-size: var(--letra-chica);
+
+        & ol {
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+            & li {
+                margin: 0.5rem 0;
+            }
+        }
+    }
+}
+
+@media (min-width:768px) {
+    .servicios p {
+        text-align: center;
+    }
+
+    .servicios__ofrecidos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        & .servicios__container {
+            min-width: 31rem;
+            max-width: 60rem;
+
+            /*Poner otro media query con ancho máximo mas grande para estos div*/
+        }
+    }
+
+    .servicios__turnos div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .servicios__turnos_calendario, .servicios__turnos_horarios {
+        & ol {
+            gap:2rem;
+        }
+    }
+}

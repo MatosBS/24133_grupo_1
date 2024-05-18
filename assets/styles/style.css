@@ -35,7 +35,26 @@ a, li {
     border: none;
     border-radius: 0.5rem;
     font-family: var(--letra-principal);
+}
+.buttons:hover {
+    cursor: pointer;
+}
 
+.whatsapp {
+    width: 72px;
+    position: fixed;
+    right: 2%;
+    bottom: 5.5rem;
+    transition: all 0.3s;
+  }
+  
+  .whatsapp:hover {
+    transition: all 0.3s;
+    width: 96px;
+  }
+  
+iframe {
+    display: none;
 }
 
 header {
@@ -90,210 +109,6 @@ header {
     }
 }
 
-/*Desde acá págoma de productos*/
-
-.products__controls {
-    width: 95%;
-    height: 36px;
-    margin: 2rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    & .products__controls_layout {
-        width: 20%;
-    }
-
-    & .products__controls_search {
-        
-        & form {
-            display: flex;
-            align-items: center;
-            gap: 0.2rem;
-            position: relative;
-        }
-
-        & input {
-            height: 3rem;
-            border: 1px solid var(--color-inputs);
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-        }
-
-        & label {
-            position: absolute;
-            right: 0.5rem;
-        }
-    }
-}
-
-.products__category {
-    display: none;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 5fr));
-    gap: 2rem;
-    width: 80%;
-    margin: 0 auto;
-
-    & .products__items {
-        border-radius: 48px 8px 48px 8px;
-        overflow: hidden;
-        border: 2px solid #00000000;
-
-        & figure {
-            background-color: var(--color-fondo);
-            border-radius: 48px 8px 0 0;
-
-            & img {
-                width: 100%;
-                height: 20rem;
-                object-fit: contain;
-                border-radius: 48px 8px 0 0;
-            }
-        }
-
-        & .products__items_info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: center;
-
-            & h3 {
-                margin: 1rem 0;
-                font-size: var(--letra-grande);
-                font-family: var(--letra-principal);
-                text-overflow: ellipsis;
-                overflow: hidden !important;
-                white-space: nowrap;
-            }
-
-            & p {
-                font-size: var(--letra-mediana);
-                font-weight: bold;
-            }
-
-            & button {
-                margin: 1rem 0;
-                width: 100%;
-                border-radius: 0;
-            }
-        }
-    }
-
-    .products__items:hover {
-        box-shadow: 0 10px 20px #00000060;
-        border: 2px solid var(--color-inputs);
-        box-sizing: content-box;
-      }
-}
-
-/*Desde acá página de servicios*/
-
-.servicios {
-    margin: 0 0.8rem;
-
-    & h2 {
-        text-align: center;
-        margin: 2rem 0 1rem 0;
-        font-size: var(--letra-grande);
-    }
-
-    & p {
-        font-size: var(--letra-chica);
-        text-align: justify;
-        margin: 2rem 0 1rem 0;
-        font-family: var(--letra-secundaria);
-    }
-
-    & .servicios__container {
-
-        & h3 {
-            font-size: var(--letra-mediana);
-            margin: 4rem 0 2rem 0;
-            text-align: center;
-        }
-
-        & img {
-            width: 100%;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        & ul li {
-            margin-left: 1rem;
-            list-style: square;
-            font-size: var(--letra-chica);
-            font-family: var(--letra-secundaria);
-        }
-
-        & button {
-            display: block;
-            margin: 1.5rem auto;
-        }
-    }
-
-    .boton_reserva {
-        display: block;
-        margin: 0 auto;
-    }
-
-    .servicios__turnos_calendario {
-        width: 80%;
-        margin: 3rem auto;
-        text-align: center;
-        font-size: var(--letra-chica);
-
-        & ol {
-            margin: 1rem 0;
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-
-            & li {
-                margin: 0.5rem 0;
-            }
-
-            & .calendario__inicio {
-                grid-column-start: 3;
-            }
-            
-        }
-    }
-
-    .servicios__turnos_horarios {
-        width: 80%;
-        margin: 3rem auto;
-        text-align: center;
-        font-size: var(--letra-chica);
-
-        & ol {
-            margin: 1rem 0;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-
-            & li {
-                margin: 0.5rem 0;
-            }
-        }
-    }
-}
-
-.whatsapp {
-    width: 72px;
-    position: fixed;
-    right: 2%;
-    bottom: 5.5rem;
-    transition: all 0.3s;
-  }
-  
-  .whatsapp:hover {
-    transition: all 0.3s;
-    width: 96px;
-  }
-  
-
 footer {
     margin-top: 6rem;
     background-color: var(--color-primario);
@@ -326,10 +141,6 @@ footer {
         justify-content: space-evenly;
         padding: 1rem;
     }
-}
-
-iframe {
-    display: none;
 }
 
 @media (min-width:768px) {
@@ -386,68 +197,6 @@ iframe {
         }   
     }
 
-    .servicios p {
-        text-align: center;
-    }
-
-    .servicios__ofrecidos {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
-
-        & .servicios__container {
-            min-width: 31rem;
-            max-width: 60rem;
-
-            /*Poner otro media query con ancho máximo mas grande para estos div*/
-        }
-    }
-
-    .servicios__turnos div {
-        display: flex;
-        justify-content: center;
-    }
-
-    .servicios__turnos_calendario, .servicios__turnos_horarios {
-        & ol {
-            gap:2rem;
-        }
-    }
-
-    .products__controls_layout a img {
-        display: none;
-    }
-
-    .products__controls_search input {
-        width: 30rem;
-        height: 3rem;
-        border: 1px solid var(--color-inputs);
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-    }
-
-    .products__container {
-        display: flex;
-        /* align-items: center; */
-        font-size: var(--letra-chica);
-        font-family: var(--letra-secundaria );
-    
-        & .products__category {
-            margin: 0 1rem;
-            display: block;
-
-            & li {
-                margin: 2rem;
-            }
-
-            & input {
-                margin-right: 1rem;
-            }
-        }
-    }
-
     footer div {
         width: 90%;
         margin: 0 auto;
@@ -475,4 +224,3 @@ iframe {
             display: block;
         }
 }
-
