@@ -7,14 +7,14 @@
     --color-inputs: #4E383A;
     --color-fondo: #e1bcb4;
     --letra-principal: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --letra-secundaria: 'lato', arial; 
+    --letra-secundaria: 'lato', arial;
     --letra-chica: 1.4rem;
-    --letra-mediana:1.6rem;
+    --letra-mediana: 1.6rem;
     --letra-grande: 2rem;
 }
 
 * {
-    margin: 0;  
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -23,7 +23,8 @@ html {
     font-size: 62.5%;
 }
 
-a, li {
+a,
+li {
     text-decoration: none;
     list-style: none;
 }
@@ -36,6 +37,7 @@ a, li {
     border-radius: 0.5rem;
     font-family: var(--letra-principal);
 }
+
 .buttons:hover {
     cursor: pointer;
 }
@@ -46,13 +48,13 @@ a, li {
     right: 2%;
     bottom: 5.5rem;
     transition: all 0.3s;
-  }
-  
-  .whatsapp:hover {
+}
+
+.whatsapp:hover {
     transition: all 0.3s;
     width: 96px;
-  }
-  
+}
+
 iframe {
     display: none;
 }
@@ -146,7 +148,7 @@ footer {
 @media (min-width:768px) {
     header {
         height: 14rem;
-    
+
         & .navbar {
             display: flex;
             align-items: center;
@@ -155,32 +157,32 @@ footer {
             position: relative;
             height: 6rem;
             top: 4rem;
-    
+
             & .navbar__logo-img {
                 width: 15rem;
                 background-color: white;
                 border-radius: 50%;
                 border: 1px dashed var(--color-inputs);
             }
-    
+
             & .navbar__list_container {
                 display: flex;
                 gap: 3rem;
-    
+
                 & .navbar__list-items {
                     font-family: var(--letra-principal);
                     font-size: var(--letra-grande);
                     padding: 1rem;
                     color: black;
                 }
-    
+
                 & .navbar__list-items:hover {
                     background-color: var(--color-secundario);
                     border-radius: 0.6rem;
-           
+
                 }
             }
-    
+
             & .navbar__users_elements {
                 display: flex;
                 align-items: center;
@@ -194,33 +196,31 @@ footer {
                     display: block;
                 }
             }
-        }   
+        }
     }
 
     footer div {
         width: 90%;
         margin: 0 auto;
 
-        & 
-
-        & .footer__contacto_info p {
+        & & .footer__contacto_info p {
             margin-left: 1.5rem;
-            }
         }
+    }
 
-        & .footer__social {
-            width: 20%;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
+    & .footer__social {
+        width: 20%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
 
-            & p {
-                text-align: center;
-                width: 100%;
-            }
+        & p {
+            text-align: center;
+            width: 100%;
         }
+    }
 
-        iframe {
-            display: block;
-        }
+    iframe {
+        display: block;
+    }
 }
