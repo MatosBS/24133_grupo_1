@@ -1,6 +1,6 @@
 import { productsPageElements } from './dom.js';
 
-async function getAllProductsJson () {
+async function getAllProductsJson() {
     let allProducts = await fetch('./assets/data/products.json').then(res => res.json());
     return allProducts;
 };
@@ -9,21 +9,23 @@ export function updateAmountInHeader(amount) {
     document.getElementById("cartAmount").innerHTML = amount;
 }
 
-export function getTotalAmountInCart () {
+export function getTotalAmountInCart() {
     let cart = JSON.parse(localStorage.getItem('cart'));
-    return cart.products.map(product => product.quantity).reduce((a,b)=>a+b);
+    return cart.products.length == 0 ?
+        0 :
+        cart.products.map(product => product.quantity).reduce((a, b) => a + b);
 }
 export function
- getQuantityFromProductInCart (productId) {
+    getQuantityFromProductInCart(productId) {
     let productsInCart = JSON.parse(localStorage.getItem('cart'));
     let product = productsInCart.products.find(product => product.productId == productId);
-    
+
     return product ? product.quantity : 0;
 };
 
-export function updateQuantityFromProductInUI (element, productId) {
+export function updateQuantityFromProductInUI(element, productId) {
     let quantityElement = element.closest('article').querySelector('.products__items_info--quantity');
-    quantityElement.innerHTML =  getQuantityFromProductInCart(productId);
+    quantityElement.innerHTML = getQuantityFromProductInCart(productId);
 };
 
 /**
@@ -31,27 +33,27 @@ export function updateQuantityFromProductInUI (element, productId) {
  * @param {*} appliedFilters Array de strings con los filtros aplicados
  * @param {*} searchedText String con el texto ingresado por el usuario
  */
-export async function getProducts (appliedFilters = [], searchedText)  {
-        let productsListContent = [];
-        let allProducts = await getAllProductsJson();
-        let productsFilters = allProducts.filter(searchedProducts => appliedFilters.includes(searchedProducts.type.toLowerCase()));
-        
-        if (searchedText) {
-            searchedText = searchedText.trim();
-            searchedText = searchedText.toLowerCase();
-            productsFilters = productsFilters.filter(searchedProducts => searchedProducts.name.toLocaleLowerCase().includes(searchedText));
-        };
+export async function getProducts(appliedFilters = [], searchedText) {
+    let productsListContent = [];
+    let allProducts = await getAllProductsJson();
+    let productsFilters = allProducts.filter(searchedProducts => appliedFilters.includes(searchedProducts.type.toLowerCase()));
 
-        for (const product of productsFilters) {
-            productsListContent.push(product);
-        };
-        return productsListContent;
+    if (searchedText) {
+        searchedText = searchedText.trim();
+        searchedText = searchedText.toLowerCase();
+        productsFilters = productsFilters.filter(searchedProducts => searchedProducts.name.toLocaleLowerCase().includes(searchedText));
+    };
+
+    for (const product of productsFilters) {
+        productsListContent.push(product);
+    };
+    return productsListContent;
 };
 
 /**
  * @returns Un array de strings con los filtros aplicados
  */
-export function getAppliedFilters () {
+export function getAppliedFilters() {
     let checkedFilters = Array.prototype.filter.call(
         productsPageElements.checkboxFilters,
         (testElement) => testElement.checked,
@@ -59,7 +61,7 @@ export function getAppliedFilters () {
     return checkedFilters.map((el) => el.id);
 };
 
-export async function getAllCategories () {
+export async function getAllCategories() {
     var amountByCategory = [];
     let allProducts = await getAllProductsJson();
     for (const product of allProducts) {
@@ -99,4 +101,16 @@ export function removeItemFromProductsArray(productsJson, productId) {
         productsJson.count--;
     };
     return productsJson;
+};
+
+export function hideFieldError (e) {
+    var errorDiv = document.getElementById(e.target.id + 'Error');
+    errorDiv.innerText = '';
+    e.target.classList.remove('error');
+};
+
+export function displayFieldError (e, msg) {
+    var errorDiv = document.getElementById(e.target.id + 'Error');
+    errorDiv.innerText = `* ${msg}`;
+    e.target.classList.add('error');
 };

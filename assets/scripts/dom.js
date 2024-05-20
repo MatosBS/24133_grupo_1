@@ -12,3 +12,13 @@ export const headerElements = {
 export const footerElements = {
     footer: document.getElementById("mainFooter")
 };
+
+export const contactoPageElements = {
+    form: document.getElementById("contactForm"),
+    nombreYApellido: document.getElementById("name"),
+    mail: document.getElementById("email"),
+    telefono: document.getElementById("phone"),
+    motivo: document.getElementById("motivos"),
+    imagen: document.getElementById("imageGroup"),
+    comentarios: document.getElementById("comments"),
+};
