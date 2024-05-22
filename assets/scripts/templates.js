@@ -7,7 +7,7 @@ export const templates = {
 
     productItem: (product) => {
         var imgSrc = `./assets/products/${product.name.replaceAll(' ', '_')}.png`;
-        return `<article class="products__items" id="${product.id}">>
+        return `<article class="products__items" id="${product.id}">
         <figure>
         <img src="${imgSrc}">
         </figure>
@@ -22,7 +22,7 @@ export const templates = {
     },
 
     noProductsAvailableLabel: () => {
-        return `<div id="error-message">
+        return `<div class="error-message" id="error-message">
         <p>Lo sentimos, no encontramos productos.</p><p>Por favor, intenta ajustar tus filtros de búsqueda.</p>
         </div>`;
     }

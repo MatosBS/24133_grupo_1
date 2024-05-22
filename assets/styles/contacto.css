@@ -3,6 +3,12 @@
     margin: 0 auto;
 }
 
+.container h3 {
+    text-align: center;
+    font-size: var(--letra-grande);
+    margin-bottom: 2rem;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -18,6 +24,11 @@ textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
+}
+
+select[name="motivos"] {
+    border: 1px solid gray;
+    padding: 10px;
 }
 
 button {

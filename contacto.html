@@ -9,80 +9,112 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/contacto.css">
 </head>
 
 <body>
-    <header id="mainHeader">
-        <nav class="navbar">
-            <div>
-                <a href="#">
-                    <img src="./assets/images/logo_header.webp" alt="Pinka logo" class="navbar__logo-img">
-                </a>
-            </div>
-            <div>
-                <ul class="navbar__list_container">
-                    <li><a href="./index.html" class="navbar__list-items">Inicio</a></li>
-                    <li><a href="./productos.html" class="navbar__list-items">Productos</a></li>
-                    <li><a href="./servicios.html" class="navbar__list-items">Servicios</a></li>
-                    <li><a href="./contacto.html" class="navbar__list-items">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="navbar__users_elements">
+    <header class="mainHeader">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto" href="#"><img class="navbar__logo"
+                        src="./assets/images/logo_header.webp" alt="Logo Pinka"></a>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Pinka online</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active mx-lg-2" aria-current="page" href="./index.html">Inicio</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link mx-lg-2 dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Productos
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Antiage</a></li>
+                                    <li><a class="dropdown-item" href="#">Capilares</a></li>
+                                    <li><a class="dropdown-item" href="#">Corporal</a></li>
+                                    <li><a class="dropdown-item" href="#">Cuidados básicos</a></li>
+                                    <li><a class="dropdown-item" href="#">Cuidados hombres</a></li>
+                                    <li><a class="dropdown-item" href="#">Depilación</a></li>
+                                    <li><a class="dropdown-item" href="#">Fragancias</a></li>
+                                    <li><a class="dropdown-item" href="#">Hidratación</a></li>
+                                    <li><a class="dropdown-item" href="#">Línea beauty</a></li>
+                                    <li><a class="dropdown-item" href="#">Manos y pies</a></li>
+                                    <li><a class="dropdown-item" href="#">Pieles delicadas</a></li>
+                                    <li><a class="dropdown-item" href="#">Pieles grasas</a></li>
+                                    <li><a class="dropdown-item" href="#">Protección solar</a></li>
+                                    <li><a class="dropdown-item" href="#">Teens</a></li>
+                                    <li><a class="dropdown-item" href="./productos.html"><strong>Ver todos</strong></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="./servicios.html">Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="./contacto.html">Nosotros</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <a href="#">
                     <img src="./assets/icons/cart.svg" alt="carrito">
                     <span id="cartAmount" class="cartAmount badge badge-danger">0</span>
                 </a>
-                <button class="navbar__desktop_menu buttons">Inicia sesión</button>
-                <label class="navbar__mobile_menu" for="menu_hamburguesa"><img src="./assets/icons/menu.svg"
-                        alt="menu mobile"></label>
-                <input class="navbar__hamburguesa_check" type="checkbox" id="menu_hamburguesa">
+                <button class="buttons login-button">Inicia sesión</button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
         </nav>
     </header>
     <main>
-        <body>
-            <div class="container">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Ingresa tu Nombre y Apellido">
-                        <div class="error" id="nameError"></div> 
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="email" name="email" placeholder="Ingresá tu email">
-                        <div class="error" id="emailError"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Ingresá tu teléfono">
-                        <div class="error" id="phoneError"></div>
-                    </div>
-                    <div class="form-group">
-                        <select id="motivos" name="motivos">
-                            <option value="select" disabled selected>Seleccione el motivo de su consulta</option>
-                            <option value="option1">Quejas</option>
-                            <option value="option2">Sugerencias</option>
-                            <option value="reaccion">Me salió una reacción en la cara</option>
-                            <option value="option4">Otros</option>
-                        </select>
-                        <div class="error" id="motivosError"></div>
-                    </div>
-                    <div class="form-group" id="imageGroup" style="display: none;">
-                        <label for="image">Subí una foto así te podemos ayudar</label>
-                        <input type="file" id="image" name="image">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="comments" name="comments" placeholder="Ingresá tus comentarios" ></textarea>
-                        <div class="error" id="commentsError"></div>
-                    </div>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
-        </body>
-
-        </html>
+        <div class="container">
+            <h3>CONTACTANOS</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Ingresa tu Nombre y Apellido">
+                    <div class="error" id="nameError"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="email" name="email" placeholder="Ingresá tu email">
+                    <div class="error" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Ingresá tu teléfono">
+                    <div class="error" id="phoneError"></div>
+                </div>
+                <div class="form-group">
+                    <select id="motivos" name="motivos">
+                        <option value="select" disabled selected>Seleccione el motivo de su consulta</option>
+                        <option value="option1">Quejas</option>
+                        <option value="option2">Sugerencias</option>
+                        <option value="reaccion">Me salió una reacción en la cara</option>
+                        <option value="option4">Otros</option>
+                    </select>
+                    <div class="error" id="motivosError"></div>
+                </div>
+                <div class="form-group" id="imageGroup" style="display: none;">
+                    <label for="image">Subí una foto así te podemos ayudar</label>
+                    <input type="file" id="image" name="image">
+                </div>
+                <div class="form-group">
+                    <textarea id="comments" name="comments" placeholder="Ingresá tus comentarios"></textarea>
+                    <div class="error" id="commentsError"></div>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
         <a href="#"><img src="./assets/icons/whatsapp.svg" alt="whatsapp" class="whatsapp"></a>
-        <script src="./assets/scripts/contactosPage.js" type="module"></script>
     </main>
     <footer id="mainFooter">
         <div>
@@ -114,6 +146,9 @@
             </div>
         </div>
     </footer>
+    <script src="./assets/scripts/contactosPage.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
-
 </html>

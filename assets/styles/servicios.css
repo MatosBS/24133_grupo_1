@@ -64,7 +64,7 @@
             & .calendario__inicio {
                 grid-column-start: 3;
             }
-
+            
         }
     }
 
@@ -92,15 +92,18 @@
     }
 
     .servicios__ofrecidos {
-        display: flex;
+        /* display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+        flex-wrap: wrap; */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
         gap: 2rem;
 
         & .servicios__container {
             min-width: 31rem;
-            max-width: 60rem;
+            max-width: 90rem;
 
             /*Poner otro media query con ancho máximo mas grande para estos div*/
         }
@@ -111,10 +114,9 @@
         justify-content: center;
     }
 
-    .servicios__turnos_calendario,
-    .servicios__turnos_horarios {
+    .servicios__turnos_calendario, .servicios__turnos_horarios {
         & ol {
-            gap: 2rem;
+            gap:2rem;
         }
     }
 }
