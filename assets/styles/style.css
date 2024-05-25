@@ -209,6 +209,10 @@ footer {
     animation-delay: 6s;
 }
 
+.a {
+    margin: 2rem 0;
+}
+
 @keyframes fade {
     0% {
         opacity: 0;
@@ -238,10 +242,18 @@ footer {
     font-size: 14px;
 }
 
+.about-us, .welcome-text, .what-we-do, .testimonials {
+    padding: 0 1rem;
+    text-align: justify;
+}
 
 @media (min-width:992px) {
     .login-button {
         display: inline;
+    }
+
+    .login-mobile {
+        display: none;
     }
 
     .navbar{
@@ -319,5 +331,4 @@ footer {
         .plus {
             width: auto;
         }
-        
 }
