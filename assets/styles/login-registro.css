@@ -1,0 +1,31 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    margin: 0 auto;
+
+    & div {
+        display: inherit;
+        justify-content: space-around;
+        align-items: center;
+        padding: 3rem 0;
+    }
+}
+
+h3 {
+    text-align: center;
+    font-size: var(--letra-xxl);
+    margin: 3rem 0;
+}
+
+label, div {
+    font-size: var(--letra-chica);
+}
+
+input {
+    margin-bottom: 2rem;
+}
+
+.check {
+    margin: 0;
+}

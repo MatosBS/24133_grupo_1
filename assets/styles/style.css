@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
     --color-primario: #F8B0A1;
@@ -8,9 +9,11 @@
     --color-fondo: #e1bcb4;
     --letra-principal: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --letra-secundaria: 'lato', arial; 
+    --letra-terciaria: 'Lobster Two', sans-serif;
     --letra-chica: 1.4rem;
     --letra-mediana:1.6rem;
     --letra-grande: 2rem;
+    --letra-xxl: 3.5rem;
 }
 
 * {
@@ -24,7 +27,8 @@ html {
 }
 
 body {
-    background: linear-gradient(135deg, #f4eded, #e1f4f3, #e9eef1);
+    /* background: linear-gradient(135deg, #f4eded, #e1f4f3, #e9eef1); */
+    background: linear-gradient(135deg, #f4eded, #c2c2c2, #e9eef1);
 }
 
 a, li {
@@ -39,9 +43,16 @@ a, li {
     border: none;
     border-radius: 0.5rem;
     font-family: var(--letra-principal);
+    font-size: 1.5rem;
 }
 .buttons:hover {
     cursor: pointer;
+}
+
+.imfondo{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .whatsapp {
@@ -92,7 +103,7 @@ header {
 
 .navbar-toggler {
     border: none;
-    font-size: var(--letra-grande);
+    font-size: var(--letra-chica);
 }
 
 .navbar-toggler:focus, .btn-close:focus {
@@ -102,7 +113,7 @@ header {
 
 .nav-link {
     font-family: var(--letra-principal);
-    font-size: var(--letra-grande);
+    font-size: var(--letra-mediana);
     padding: 1rem;
     color: black;
 }
@@ -158,6 +169,76 @@ footer {
     }
 }
 
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    height: 40%;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+    overflow: hidden;
+}
+
+.carousel img {
+    width: 10%;
+    height: 10%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fade 9s infinite;
+}
+
+.carousel img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.carousel img:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.carousel img:nth-child(3) {
+    animation-delay: 6s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    33% {
+        opacity: 1;
+    }
+    38% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.carousel-caption {
+    
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    padding: 10px;
+    background: --color-inputs;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
 @media (min-width:992px) {
     .login-button {
         display: inline;
@@ -166,6 +247,10 @@ footer {
     .navbar{
         position: relative;
         top: 4rem;
+    }
+
+    .nav-link {
+        font-size: var(--letra-grande);
     }
 
     .container-fluid {
@@ -177,7 +262,7 @@ footer {
         background-color: var(--color-primario);
         border: 0;
         font-size: var(--letra-chica);
-        width: 13.5rem;
+        width: auto;
         margin-left: 0;
     }
 
@@ -230,73 +315,9 @@ footer {
             font-size: var(--letra-grande);
             
         }
-        
-        .carousel-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin: 0 auto;
+
+        .plus {
             width: auto;
-            height: auto;
         }
         
-        .carousel {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: auto;
-            height: auto;
-            overflow: hidden;
-        }
-        
-        .carousel img {
-            width: 10%;
-            height: 10%;
-            object-fit: cover;
-            opacity: 0;
-            animation: fade 9s infinite;
-        }
-        
-        .carousel img:nth-child(1) {
-            animation-delay: 0s;
-        }
-        
-        .carousel img:nth-child(2) {
-            animation-delay: 3s;
-        }
-        
-        .carousel img:nth-child(3) {
-            animation-delay: 6s;
-        }
-        
-        @keyframes fade {
-            0% {
-                opacity: 0;
-            }
-            5% {
-                opacity: 1;
-            }
-            33% {
-                opacity: 1;
-            }
-            38% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-        
-        .carousel-caption {
-            
-            bottom: 20px;
-            left: 20px;
-            color: white;
-            padding: 10px;
-            background: --color-inputs;
-            border-radius: 5px;
-            font-size: 14px;
-        }
 }

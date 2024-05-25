@@ -92,10 +92,6 @@
     }
 
     .servicios__ofrecidos {
-        /* display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap; */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         place-items: center;
@@ -103,7 +99,7 @@
 
         & .servicios__container {
             min-width: 31rem;
-            max-width: 90rem;
+            max-width: 80rem;
 
             /*Poner otro media query con ancho máximo mas grande para estos div*/
         }

@@ -6,7 +6,7 @@ export const templates = {
     },
 
     productItem: (product) => {
-        var imgSrc = `./assets/products/${product.name.replaceAll(' ', '_')}.png`;
+        var imgSrc = `./assets/products/${product.name.replaceAll(' ', '_')}.webp`;
         return `<article class="products__items" id="${product.id}">
         <figure>
         <img src="${imgSrc}">
