@@ -45,11 +45,9 @@ export async function load() {
     };
 
     await console.log('ESTOY PROBANDOOOO')
-    // const response = await fetch('http://localhost:8080/products', { method: 'GET', mode: 'no-cors' });
     const response = await fetch('http://localhost:8080/products', { method: 'GET'});
     const body = await response.json();
     await console.log(body)
-    // await console.log(probando)
 
     var searchInput = document.getElementById('searchInput');
     searchInput.addEventListener("keyup", renderProductList, false);
