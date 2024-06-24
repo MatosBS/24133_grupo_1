@@ -1,0 +1,27 @@
+{
+  "type": "module",
+  "name": "pinka_online",
+  "description": "Codo a Codo - Comisión 24133 - Grupo 1 - Pinka Online",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatosBS/24133_grupo_1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatosBS/24133_grupo_1/issues"
+  },
+  "homepage": "https://github.com/MatosBS/24133_grupo_1#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.10.1",
+    "nodemon": "^3.1.3"
+  }
+}
