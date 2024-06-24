@@ -29,9 +29,7 @@ const showAllProducts = (products) => {
     searchInput.addEventListener("keyup", filterProductsEvent, false);
 };
 
-// // fetch('http://localhost:8080/products', { method: 'GET' })
-// fetch('./products')
-fetch('http://localhost:8080/products')
+fetch('https://pinkaonline.onrender.com/products')
     .then(res => res.json())
     .then(res => showAllProducts(res))
     .catch(err => console.log(err))
