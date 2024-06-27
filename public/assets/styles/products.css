@@ -63,6 +63,9 @@
                 object-fit: contain;
                 border-radius: 48px 8px 0 0;
             }
+            & input {
+                visibility: hidden;
+            }
         }
 
         & .products__items_info {
@@ -95,6 +98,26 @@
                 margin: 1rem 0;
                 width: 25%;
                 border-radius: 0;
+            }
+        }
+
+        & .products__items_plusminus {
+            & input {
+                width: 95%;
+                margin: 0.1rem 0;
+                height: 30px;
+                font-size: 14px;
+            }
+            & button {
+                width: 100%;
+            }
+            & select {
+                width: 50%;
+                margin: 0.1rem 0;
+            }
+            & button {
+                width: 60%;
+                margin: 0.1rem 0;
             }
         }
     }

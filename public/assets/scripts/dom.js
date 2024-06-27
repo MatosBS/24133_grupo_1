@@ -22,3 +22,7 @@ export const contactoPageElements = {
     imagen: document.getElementById("imageGroup"),
     comentarios: document.getElementById("comments"),
 };
+
+export const adminProductsElements = {
+    productsListSection: document.getElementById("productsList"),
+};

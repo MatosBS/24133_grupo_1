@@ -1,41 +1,27 @@
+import { adapters } from './products.adapter.js';
 import { db } from './products.dao.mysql.js';
+import { messages } from './products.data.js';
 
 const getAllProducts = async (_, res) => {
     const result = await db.getProducts();
     res.json(result);
 };
 
+const updateProduct = async (req, res, next) => {
+    const { id } = req.params;
+    const product = adapters.productAdapter(req.body);
+    const result = await db.updateProduct(id, product)
+    result.message === '0' ? res.json(messages.upd) : next(result)
+};
 
-// const getProductsProducts = async (req, res) => {
-//     let appliedFilters = req.query.filters.split(',');
-//     appliedFilters = appliedFilters.map(filter => filter.toLowerCase());
+const deleteProduct = async (req, res, next) => {
+    const { id } = req.params;
+    const result = await db.deleteProduct(id)
+    result.message === '0' ? res.json(messages.upd) : next(result)
+};
 
-//     let productsFiltered = this.products.filter(product => appliedFilters.includes(product.type.toLowerCase()));
-//     res.json(productsFiltered);
-// };
-
-
-// getProductsByCategory(req, res) {
-//     res.json(data);
-// };
-
-// export async function getProducts(appliedFilters = [], searchedText) {
-//     let productsListContent = [];
-//     let allProducts = await getAllProductsJson();
-//     let productsFilters = allProducts.filter(searchedProducts => appliedFilters.includes(searchedProducts.type.toLowerCase()));
-
-//     if (searchedText) {
-//         searchedText = searchedText.trim();
-//         searchedText = searchedText.toLowerCase();
-//         productsFilters = productsFilters.filter(searchedProducts => searchedProducts.name.toLocaleLowerCase().includes(searchedText));
-//     };
-
-//     for (const product of productsFilters) {
-//         productsListContent.push(product);
-//     };
-//     return productsListContent;
-// };
 export const controllers = {
     getAllProducts,
-    // getProductsProducts
+    updateProduct,
+    deleteProduct
 };

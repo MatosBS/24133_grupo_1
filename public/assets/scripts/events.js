@@ -1,3 +1,4 @@
+import urlsConfig from '../../../config/urls.config.js';
 import { addItemToProductsArray, removeItemFromProductsArray } from './cartFunctions.js';
 import { contactoPageElements, productsPageElements } from './dom.js';
 import { getAppliedFilters, getTotalAmountInCart, updateAmountInHeader, updateQuantityFromProductInUI, displayFieldError, hideFieldError } from './functions.js';
@@ -47,6 +48,64 @@ export function addToCartEvent(e) {
     updateAmountInHeader(getTotalAmountInCart());
     updateQuantityFromProductInUI(e.currentTarget, productId);
 };
+
+
+export function updateProductOnClickEvent(e) {
+    e.preventDefault();
+    let productId = e.currentTarget.closest('article').id;
+    let name = document.querySelector(`article[id = "${productId}"] input[name="name"]`).value;
+    let price = document.querySelector(`article[id = "${productId}"] input[name="price"]`).value.replace('$', '');
+    let category = document.querySelector(`article[id = "${productId}"] select[name="category"]`).value;
+    let stock = document.querySelector(`article[id = "${productId}"] input[name="stock"]`).value;
+
+    const body = {
+        name: name,
+        price: price,
+        category: category,
+        stock: stock
+    };
+
+    const url = urlsConfig.api_url + '/products/' + productId;
+    fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(body),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(res => res.json())
+        .then(res => errorCheck(res))
+        .catch(err => alert(err));
+};
+
+export function deleteProductOnClickEvent(e) {
+    e.preventDefault();
+    let productId = e.currentTarget.closest('article').id;
+    let name = document.querySelector(`article[id = "${productId}"] input[name="name"]`).value;
+    let text;
+    if (confirm(`¿Está seguro que desea eliminar el producto ${name}?`) == true) {
+
+        //FALTA ELIMINAR EL PRODUCTO DEL DISCO
+
+        const url = urlsConfig.api_url + '/products/' + productId;
+        fetch(url, { method: "DELETE" })
+            .then(res => res.json())
+            .then(res => errorCheck(res))
+            .catch(err => alert(err));
+    };
+};
+
+const errorCheck = (error) => {
+    if (error.error_code === 1 ||
+        error.error_code === 3 ||
+        error.error_code === 10)
+        alert(error.error_desc)
+
+    if (error.error_code === 0) {
+        alert(error.desc)
+        window.location.reload();
+    }
+}
 
 export function removeFromCartEvent(e) {
     let productId = parseInt(e.currentTarget.closest('article').id);

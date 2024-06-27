@@ -13,5 +13,11 @@ router
   .use(middlewares.routes.checkRoute)
   .get('/',
     controllers.getAllProducts)
+  .put('/:id',
+    middlewares.routes.checkParams,
+    controllers.updateProduct)
+  .delete('/:id',
+    middlewares.routes.checkParams,
+    controllers.deleteProduct)
 
 export default router;

@@ -55,6 +55,13 @@ a, li {
     margin: 0 auto;
 }
 
+.titulos {
+    font-size:3.5rem;
+    font-family: var(--letra-principal);
+    text-align: center;
+    margin: 2rem 0;
+}
+
 .whatsapp {
     width: 72px;
     position: fixed;
