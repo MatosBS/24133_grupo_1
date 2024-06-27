@@ -1,4 +1,3 @@
-import urlsConfig from '../../../config/urls.config.js';
 import { addItemToProductsArray, removeItemFromProductsArray } from './cartFunctions.js';
 import { contactoPageElements, productsPageElements } from './dom.js';
 import { getAppliedFilters, getTotalAmountInCart, updateAmountInHeader, updateQuantityFromProductInUI, displayFieldError, hideFieldError } from './functions.js';
@@ -65,7 +64,7 @@ export function updateProductOnClickEvent(e) {
         stock: stock
     };
 
-    const url = urlsConfig.api_url + '/products/' + productId;
+    const url = 'https://pinkaonline.onrender.com/products/products/' + productId;
     fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),
@@ -87,7 +86,7 @@ export function deleteProductOnClickEvent(e) {
 
         //FALTA ELIMINAR EL PRODUCTO DEL DISCO
 
-        const url = urlsConfig.api_url + '/products/' + productId;
+        const url = 'https://pinkaonline.onrender.com/products/' + productId;
         fetch(url, { method: "DELETE" })
             .then(res => res.json())
             .then(res => errorCheck(res))

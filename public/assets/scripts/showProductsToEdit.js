@@ -1,7 +1,6 @@
 import { adminProductsElements } from './dom.js';
 import { adminProductsTemplates } from './templates.js';
 import { updateProductOnClickEvent, deleteProductOnClickEvent } from './events.js';
-import urlsConfig from '../../../config/urls.config.js';
 
 const showProductsToEdit = (products) => {
     for (let product of products) {
@@ -23,7 +22,7 @@ const showProductsToEdit = (products) => {
     });
 };
 
-fetch(urlsConfig.api_url + '/products')
+fetch('https://pinkaonline.onrender.com/products')
     .then(res => res.json())
     .then(res => showProductsToEdit(res))
     .catch(err => console.log(err));
