@@ -39,3 +39,20 @@ connection.query(`CREATE TABLE IF NOT EXISTS contacts (
   reasonsId INT,
   FOREIGN KEY (reasonsId) REFERENCES reasons(id)
 );`);
+
+
+/*
+INSERT INTO categories (name)values ('Crema'), ('Emulsión'), ('Pote');
+
+INSERT INTO products (name, description, price, stock, categoriesId) values 
+('Balsamo Dinamizante Celular', '', 2000, 12, 1),
+('Completo Antiage Omega Plus', 'Crema', 1500, 8, 1),
+('Crema Nutritiva Con Vitamina AyE', '', 8700, 1, 3),
+('Diamond Lips Perfil 12ml', '', 12500, 13, 3),
+('Diamond Eyes Estuche Lateral', '', 18300, 29, 3),
+('Filler Diamond Antiage', '', 1200, 3, 2),
+('Pomo Gel Contorno De Ojos', '', 6900, 11, 2),
+('Renova Defense', '', 4600, 100, 2),
+('Serum Liposomado', '', 14000, 14, 2),
+('Stress Control Detox ENVASO', '', 9000, 10, 2);
+*/

@@ -7,10 +7,10 @@ const config = {
 };
 
 // const config = {
-//   host: 'sql3.freesqldatabase.com',
-//   user: 'sql3715024',
-//   password: 'pKFbrIPNb6',
-//   database: 'sql3715024',
+//   host: 'sql5.freesqldatabase.com',
+//   user: 'sql5716503',
+//   password: '1TnPA2Bw1E',
+//   database: 'sql5716503',
 //   port: 3306
 // };
 
