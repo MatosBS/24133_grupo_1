@@ -1,4 +1,3 @@
-import urlsConfig from '../../../config/urls.config.js';
 import { productsPageElements } from './dom.js';
 import { addToCartEvent, filterProductsEvent, removeFromCartEvent } from './events.js';
 import { getTotalAmountInCart, saveProductsInLocalStorage, updateAmountInHeader } from './functions.js';
@@ -31,7 +30,7 @@ const showAllProducts = (products) => {
     searchInput.addEventListener("keyup", filterProductsEvent, false);
 };
 
-fetch(urlsConfig.api_url + '/products')
+fetch('https://pinkaonline.onrender.com/products')
     .then(res => res.json())
     .then(res => showAllProducts(res))
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
