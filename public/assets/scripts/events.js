@@ -1,4 +1,4 @@
-import { addItemToProductsArray, removeItemFromProductsArray } from './cartFunctions.js';
+import { addItemToProductsArray, removeEntireItemFromProductsArray, removeItemFromProductsArray } from './cartFunctions.js';
 import { contactoPageElements, productsPageElements } from './dom.js';
 import { getAppliedFilters, getTotalAmountInCart, updateAmountInHeader, updateQuantityFromProductInUI, displayFieldError, hideFieldError } from './functions.js';
 import { templates } from './templates.js';
@@ -40,9 +40,15 @@ export function filterProductsEvent() {
 };
 
 export function addToCartEvent(e) {
-    let productId = parseInt(e.currentTarget.closest('article').id);
+    const productId = parseInt(e.currentTarget.closest('article').id);
+    let product = {
+        productId: productId,
+        name: document.querySelector(`article[id = "${productId}"] *[name="name"]`).textContent,
+        unitPrice: document.querySelector(`article[id = "${productId}"] *[name="price"]`).textContent.replace('$', '')
+    };
+
     let cart = JSON.parse(localStorage.getItem('cart'));
-    cart = addItemToProductsArray(cart, productId);
+    cart = addItemToProductsArray(cart, product);
     localStorage.setItem('cart', JSON.stringify(cart));
     updateAmountInHeader(getTotalAmountInCart());
     updateQuantityFromProductInUI(e.currentTarget, productId);
@@ -64,7 +70,8 @@ export function updateProductOnClickEvent(e) {
         stock: stock
     };
 
-    const url = 'https://pinkaonline.onrender.com/products/products/' + productId;
+    // const url = 'https://pinkaonline.onrender.com/products/products/' + productId;
+    const url = 'http://localhost:8080/products/products/' + productId;
     fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),
@@ -86,7 +93,8 @@ export function deleteProductOnClickEvent(e) {
 
         //FALTA ELIMINAR EL PRODUCTO DEL DISCO
 
-        const url = 'https://pinkaonline.onrender.com/products/' + productId;
+        // const url = 'https://pinkaonline.onrender.com/products/' + productId;
+        const url = 'http://localhost:8080/products/' + productId;
         fetch(url, { method: "DELETE" })
             .then(res => res.json())
             .then(res => errorCheck(res))
@@ -105,6 +113,16 @@ const errorCheck = (error) => {
         window.location.reload();
     }
 }
+
+export function removeEntireProductFromCartEvent(e) {
+    let productId = parseInt(e.currentTarget.closest('div.cart-products-item').id);
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    cart = removeEntireItemFromProductsArray(cart, productId);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    updateAmountInHeader(getTotalAmountInCart());
+    window.location.reload();
+};
 
 export function removeFromCartEvent(e) {
     let productId = parseInt(e.currentTarget.closest('article').id);

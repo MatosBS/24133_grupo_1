@@ -24,5 +24,9 @@ export const contactoPageElements = {
 };
 
 export const adminProductsElements = {
-    productsListSection: document.getElementById("productsList"),
+    productsListSection: document.getElementById("productsList")
+};
+
+export const cartElements = {
+    productsListSection: document.getElementById("productsList")
 };

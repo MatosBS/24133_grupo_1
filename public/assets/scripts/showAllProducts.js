@@ -1,6 +1,7 @@
 import { productsPageElements } from './dom.js';
 import { addToCartEvent, filterProductsEvent, removeFromCartEvent } from './events.js';
 import { getTotalAmountInCart, saveProductsInLocalStorage, updateAmountInHeader } from './functions.js';
+import showCategories from './showCategories.js';
 import { templates } from './templates.js';
 
 const showAllProducts = (products) => {
@@ -28,9 +29,12 @@ const showAllProducts = (products) => {
 
     var searchInput = document.getElementById('searchInput');
     searchInput.addEventListener("keyup", filterProductsEvent, false);
+
+    showCategories();
 };
 
 fetch('https://pinkaonline.onrender.com/products')
+    // fetch('http://localhost:8080/products')
     .then(res => res.json())
     .then(res => showAllProducts(res))
     .catch(err => console.log(err))

@@ -6,7 +6,7 @@ const showProductsToEdit = (products) => {
     for (let product of products) {
         const productContainer = document.createElement('article')
         productContainer.className = 'products__items';
-        productContainer.id = product.id; 
+        productContainer.id = product.id;
         productContainer.innerHTML = adminProductsTemplates.productItem(product);
         adminProductsElements.productsListSection.append(productContainer)
     };
@@ -23,6 +23,7 @@ const showProductsToEdit = (products) => {
 };
 
 fetch('https://pinkaonline.onrender.com/products')
+    // fetch('http://localhost:8080/products')
     .then(res => res.json())
     .then(res => showProductsToEdit(res))
     .catch(err => console.log(err));

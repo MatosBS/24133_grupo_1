@@ -6,7 +6,7 @@ import { templates } from './templates.js';
  * 
  * @returns Array de Tags html con los nombres de las categorías
  */
-const showCategories = function () {
+export default function showCategories() {
     var amountByCategory = getAllCategories();
     var productsTypesListContent = ``;
     amountByCategory.forEach(category => {
@@ -34,5 +34,3 @@ function getAllCategories() {
     };
     return amountByCategory;
 };
-
-showCategories();

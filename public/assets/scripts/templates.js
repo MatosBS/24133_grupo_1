@@ -11,8 +11,8 @@ export const templates = {
         <img src="${imgSrc}">
         </figure>
         <div class="products__items_info">
-        <h3 title="${product.name}">${product.name}</h3>
-        <p>$${product.price.toLocaleString('us-US', { style: 'currency', currency: 'USD' })}</p>
+        <h3 name="name" title="${product.name}">${product.name}</h3>
+        <p name="price">$${product.price.toLocaleString('us-US', { style: 'currency', currency: 'USD' })}</p>
         <button class="buttons remove-from-cart">-</button>
         <p class="products__items_info--quantity">${getQuantityFromProductInCart(product.id)}</p>
         <button class="buttons add-to-cart">+</button>
@@ -43,6 +43,23 @@ export const adminProductsTemplates = {
             <input type="number" name="stock" value=${product.stock}>
             <button type="submit" class="buttons button_plus_minus updateProductButton">Actualizar producto</button>
             <button type="submit" class="buttons button_plus_minus deleteProductButton">Eliminar producto</button>
-        </div>`
+        </div>`;
+    }
+};
+
+export const cartTemplates = {
+    productItem: (product) => {
+        var subtotal = Number(product.unitPrice).toFixed(2) * product.quantity;
+        return `<div style="width: 70%;">
+            <h4>${product.name}</h4>
+            <div>
+              <p><span>Unidades: ${product.quantity}</span> | <span>Precio Unitario: $${product.unitPrice.toLocaleString('us-US', { style: 'currency', currency: 'USD' })}</span> | <span>Total: ${subtotal.toLocaleString('us-US', { style: 'currency', currency: 'USD' })}</span></p>
+            </div>
+          </div>
+          <div class="cart-item-quit">
+            <button class="buttons remove-from-cart">
+              <img src="./assets/icons/quit.svg" alt="eliminar">
+            </button>
+          </div>`;
     }
 };
