@@ -13,6 +13,9 @@ router
   .use(middlewares.routes.checkRoute)
   .get('/',
     controllers.getAllProducts)
+  .post('/',
+    middlewares.files.uploadImage.single('image'),
+    controllers.createProduct)
   .put('/:id',
     middlewares.routes.checkParams,
     controllers.updateProduct)

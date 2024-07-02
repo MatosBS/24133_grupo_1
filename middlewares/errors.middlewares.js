@@ -17,15 +17,13 @@ const errorData = (req) => ({
     error_code: 2,
     error_desc: 'Error desconocido'
   }
-})
-
-
+});
 
 const errorController = (err, req, res, _) => {
-  const errorCode = parseInt(err.message)
-  const error = errorData(req)
+  const errorCode = parseInt(err.message);
+  const error = errorData(req);
 
-  res.status(500)
+  res.status(500);
 
   switch (errorCode) {
     case 3:
@@ -39,9 +37,9 @@ const errorController = (err, req, res, _) => {
       break;
     default:
       res.json(error.unexpected);
-  }
-}
+  };
+};
 
 export const middlewares = {
   errorController
-}
+};

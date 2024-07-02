@@ -12,6 +12,35 @@ const getProducts = async () => {
   catch (err) { return [] };
 };
 
+const getFileName = async (id) => {
+  try {
+    const query = `SELECT imageFileName
+      from products
+      where id = ${id}`;
+    const [result] = await connection.promise().query(query);
+
+    return result[0].imageFileName;
+  }
+  catch (err) { return [] };
+};
+
+const createProduct = async (product) => {
+  try {
+    const { name, price, stock, category, imageFileName } = product
+
+    const query = `INSERT INTO products
+          (name, description, price, stock, categoriesId, imageFileName)
+          VALUES ('${name}', '', ${price}, ${stock},${category}, '${imageFileName}')`;
+
+    const [result] = await connection.promise().query(query);
+
+    return result.affectedRows > 0
+  }
+  catch (err) {
+    return false
+  }
+}
+
 const updateProduct = async (id, productData) => {
   const query = `UPDATE products
       set name = '${productData.name}',
@@ -28,11 +57,13 @@ const deleteProduct = async (id) => {
   const query = `DELETE FROM products
       where id = ${id}`;
   const [result] = await connection.promise().query(query);
-  return result.affectedRows > 0 ? Error(0) : Error(3);
+  return result.affectedRows > 0 ? Error(0) : Error(4);
 };
 
 export const db = {
   getProducts,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  createProduct,
+  getFileName
 };

@@ -6,5 +6,9 @@ export const messages = {
     del: {
         error_code: 0,
         desc: 'Product removed'
-    }
+    },
+    err: {
+        error_code: 1,
+        desc: 'Product not added'
+    },
 };

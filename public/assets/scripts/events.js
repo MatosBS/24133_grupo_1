@@ -70,8 +70,8 @@ export function updateProductOnClickEvent(e) {
         stock: stock
     };
 
-    // const url = 'https://pinkaonline.onrender.com/products/products/' + productId;
-    const url = 'http://localhost:8080/products/products/' + productId;
+    const url = 'https://pinkaonline.onrender.com/products/' + productId;
+    // const url = 'http://localhost:8080/products/' + productId;
     fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),
@@ -88,13 +88,9 @@ export function deleteProductOnClickEvent(e) {
     e.preventDefault();
     let productId = e.currentTarget.closest('article').id;
     let name = document.querySelector(`article[id = "${productId}"] input[name="name"]`).value;
-    let text;
     if (confirm(`¿Está seguro que desea eliminar el producto ${name}?`) == true) {
-
-        //FALTA ELIMINAR EL PRODUCTO DEL DISCO
-
-        // const url = 'https://pinkaonline.onrender.com/products/' + productId;
-        const url = 'http://localhost:8080/products/' + productId;
+        const url = 'https://pinkaonline.onrender.com/products/' + productId;
+        // const url = 'http://localhost:8080/products/' + productId;
         fetch(url, { method: "DELETE" })
             .then(res => res.json())
             .then(res => errorCheck(res))
