@@ -1,5 +1,5 @@
 import { adminProductsTemplates } from './templates.js';
-import { updateProductOnClickEvent, deleteProductOnClickEvent } from './events.js';
+import { deleteProductOnClickEvent } from './events.js';
 import { saveProductsInLocalStorage } from './functions.js';
 
 const showProductsToEdit = (products) => {
@@ -10,11 +10,6 @@ const showProductsToEdit = (products) => {
         productRow.innerHTML = adminProductsTemplates.productRow(product);
         productsTable.append(productRow)
     };
-
-    // const updateProductButtons = document.querySelectorAll('.btn-update-product');
-    // updateProductButtons.forEach((card) => {
-    //     card.addEventListener('click', updateProductOnClickEvent);
-    // });
 
     const deleteProductRows = document.querySelectorAll('.btn-remove-product');
     deleteProductRows.forEach((card) => {

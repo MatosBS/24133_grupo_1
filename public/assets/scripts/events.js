@@ -57,7 +57,6 @@ export function addToCartEvent(e) {
 
 export function updateProductOnClickEvent(e) {
     e.preventDefault();
-    console.log(e)
 
     const form = e.currentTarget.closest('form');
     const productId = form.getAttribute('id');
@@ -69,7 +68,7 @@ export function updateProductOnClickEvent(e) {
         category: form.querySelector('select[name="category"] option[selected]:not([disabled])').value
     };
 
-    const url = 'https://pinkaonline.onrender.com/products/' + productId;
+    const url = 'https://pinkaonline.onrender.com/products/' + producto.id;
     // const url = 'http://localhost:8080/products/' + productId;
     fetch(url, {
         method: "PUT",

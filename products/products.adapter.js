@@ -6,8 +6,6 @@ const productAdapter = (data, file = '') => {
 
     let { name, price, category, stock } = data;
 
-    console.log('CATEGORIA')
-    console.log(category)
     switch (category) {
         case 'Crema':
           category = 1;
@@ -19,7 +17,6 @@ const productAdapter = (data, file = '') => {
           category = 3;
           break;
       };
-    console.log(category)
     stock = parseInt(stock);
     price = parseFloat(price);
     const product = new Product(name, price, category, stock, file);

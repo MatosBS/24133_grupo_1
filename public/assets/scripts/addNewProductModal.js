@@ -11,7 +11,7 @@ addNewProductModal.innerHTML = `
       </div>
       <div class="modal-body">
       <!-- <form enctype="multipart/form-data" action="http://localhost:8080/products" method="POST"> -->
-        <form enctype="multipart/form-data" action="https://pinkaonline.onrender.com/products" method="POST"> 
+        <form enctype="multipart/form-data" action="https://pinkaonline.onrender.com/products" method="POST">
           <div class="form-floating mb-3">
             <input name="name" type="text" class="form-control" id="name" placeholder="Nombre" />
             <label for="name">Nombre</label>
@@ -52,7 +52,6 @@ if (addNewProductModal) {
       const name = addNewProductModal.querySelector('input[name="name"]');
 
       const producto = JSON.parse(localStorage.getItem('products')).products.filter(product => product.id == productId)[0];
-      console.log(producto)
       modalTitle.textContent = `Editando producto #${productId} - ${producto.name}`;
       
       name.value = producto.name;
