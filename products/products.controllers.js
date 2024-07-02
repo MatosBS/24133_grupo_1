@@ -11,7 +11,7 @@ const getAllProducts = async (_, res) => {
 const createProduct = async (req, res, next) => {
     const product = adapters.productAdapter(req.body, req.file)
     const result = await db.createProduct(product)
-    result ? res.redirect('/adminProducts.html') : res.json(messages.upd)
+    result.message === '0' ? res.json(messages.cre) : next(result)
 }
 
 const updateProduct = async (req, res, next) => {
