@@ -57,17 +57,16 @@ export function addToCartEvent(e) {
 
 export function updateProductOnClickEvent(e) {
     e.preventDefault();
-    let productId = e.currentTarget.closest('article').id;
-    let name = document.querySelector(`article[id = "${productId}"] input[name="name"]`).value;
-    let price = document.querySelector(`article[id = "${productId}"] input[name="price"]`).value.replace('$', '');
-    let category = document.querySelector(`article[id = "${productId}"] select[name="category"]`).value;
-    let stock = document.querySelector(`article[id = "${productId}"] input[name="stock"]`).value;
+    console.log(e)
 
+    const form = e.currentTarget.closest('form');
+    const productId = form.getAttribute('id');
+      
     const body = {
-        name: name,
-        price: price,
-        category: category,
-        stock: stock
+        name: form.querySelector('input[name="name"]').value,
+        price: form.querySelector('input[name="price"]').value,
+        stock: form.querySelector('input[name="stock"]').value,
+        category: form.querySelector('select[name="category"] option[selected]:not([disabled])').value
     };
 
     const url = 'https://pinkaonline.onrender.com/products/' + productId;
@@ -86,8 +85,8 @@ export function updateProductOnClickEvent(e) {
 
 export function deleteProductOnClickEvent(e) {
     e.preventDefault();
-    let productId = e.currentTarget.closest('article').id;
-    let name = document.querySelector(`article[id = "${productId}"] input[name="name"]`).value;
+    let productId = e.currentTarget.closest('tr').id;
+    let name = document.querySelector(`tr[id = "${productId}"] td[name="name"]`).textContent;
     if (confirm(`¿Está seguro que desea eliminar el producto ${name}?`) == true) {
         const url = 'https://pinkaonline.onrender.com/products/' + productId;
         // const url = 'http://localhost:8080/products/' + productId;

@@ -1,29 +1,31 @@
-import { adminProductsElements } from './dom.js';
 import { adminProductsTemplates } from './templates.js';
 import { updateProductOnClickEvent, deleteProductOnClickEvent } from './events.js';
+import { saveProductsInLocalStorage } from './functions.js';
 
 const showProductsToEdit = (products) => {
+    const productsTable = document.querySelector('#productsTable');
     for (let product of products) {
-        const productContainer = document.createElement('article')
-        productContainer.className = 'products__items';
-        productContainer.id = product.id;
-        productContainer.innerHTML = adminProductsTemplates.productItem(product);
-        adminProductsElements.productsListSection.append(productContainer)
+        const productRow = document.createElement('tr')
+        productRow.id = product.id;
+        productRow.innerHTML = adminProductsTemplates.productRow(product);
+        productsTable.append(productRow)
     };
 
-    const updateProductButtons = document.querySelectorAll('.updateProductButton');
-    updateProductButtons.forEach((card) => {
-        card.addEventListener('click', updateProductOnClickEvent);
-    });
+    // const updateProductButtons = document.querySelectorAll('.btn-update-product');
+    // updateProductButtons.forEach((card) => {
+    //     card.addEventListener('click', updateProductOnClickEvent);
+    // });
 
-    const deleteProductButtons = document.querySelectorAll('.deleteProductButton');
-    deleteProductButtons.forEach((card) => {
+    const deleteProductRows = document.querySelectorAll('.btn-remove-product');
+    deleteProductRows.forEach((card) => {
         card.addEventListener('click', deleteProductOnClickEvent);
     });
+
+    saveProductsInLocalStorage(products);
 };
 
 fetch('https://pinkaonline.onrender.com/products')
-    // fetch('http://localhost:8080/products')
+// fetch('http://localhost:8080/products')
     .then(res => res.json())
     .then(res => showProductsToEdit(res))
     .catch(err => console.log(err));

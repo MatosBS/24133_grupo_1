@@ -44,6 +44,20 @@ export const adminProductsTemplates = {
             <button type="submit" class="buttons button_plus_minus updateProductButton">Actualizar producto</button>
             <button type="submit" class="buttons button_plus_minus deleteProductButton">Eliminar producto</button>
         </div>`;
+    },
+
+    productRow: (product) => {
+        var imgSrc = `./assets/products/${product.imageFileName}`;
+
+        return `
+            <th>${product.id}</th>
+            <td><img style="max-height: 50px; max-width: 50px;" src="${imgSrc}" alt="${product.name}"></td>
+            <td name="name">${product.name}</td>
+            <td>${product.price.toLocaleString('us-US', { style: 'currency', currency: 'USD' })}</td>
+            <td>${product.category}</td>
+            <td>${product.stock}</td>
+            <td><button type="button" class="btn btn-primary btn-update-product" data-bs-toggle="modal" data-bs-target="#addNewProductModal" data-bs-productId="${product.id}">Editar</button><button type="button" class="btn btn-danger btn-remove-product">Eliminar</button></td>
+        `;
     }
 };
 
