@@ -68,7 +68,7 @@ export function updateProductOnClickEvent(e) {
         category: form.querySelector('select[name="category"] option[selected]:not([disabled])').value
     };
 
-    const url = 'https://pinkaonline.onrender.com/products/' + producto.id;
+    const url = 'https://pinkaonline.onrender.com/products/' + productoId;
     // const url = 'http://localhost:8080/products/' + productId;
     fetch(url, {
         method: "PUT",
