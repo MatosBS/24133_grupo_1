@@ -1,9 +1,8 @@
 const addNewProductModal = document.getElementById('addNewProductModal');
 import { updateProductOnClickEvent } from './events.js';
-import { modalFunctions } from './modalFunctions.js';
 
-const resetModal = () => {
-  addNewProductModal.innerHTML = `
+
+addNewProductModal.innerHTML = `
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -44,20 +43,48 @@ const resetModal = () => {
     </div>
   </div>
 `;
-};
-
-resetModal();
-
 if (addNewProductModal) {
   addNewProductModal.addEventListener('show.bs.modal', event => {
     const button = event.relatedTarget
     const productId = button.getAttribute('data-bs-productId')
     if (productId) {
-      const producto = JSON.parse(localStorage.getItem('products')).products.filter(product => product.id == productId)[0];
+      const modalTitle = addNewProductModal.querySelector('.modal-title');
+      const name = addNewProductModal.querySelector('input[name="name"]');
 
-      modalFunctions.setValuesInModalAndUpdateToEdit(producto, addNewProductModal);
-    } else {
-      resetModal();
+      const producto = JSON.parse(localStorage.getItem('products')).products.filter(product => product.id == productId)[0];
+      modalTitle.textContent = `Editando producto #${productId} - ${producto.name}`;
+      
+      name.value = producto.name;
+
+      const price = addNewProductModal.querySelector('input[name="price"]');
+      price.value = producto.price;
+
+      const stock = addNewProductModal.querySelector('input[name="stock"]');
+      stock.value = producto.stock;
+
+      var category;
+      switch (producto.category) {
+        case 'Crema':
+          category = 2;
+          break;
+        case 'Emulsión':
+          category = 3;
+          break;
+        case 'Pote':
+          category = 4;
+          break;
+      };
+      category = addNewProductModal.querySelector(`select[name="category"] option:nth-of-type(${category})`);
+      category.setAttribute('selected', true);
+
+      const form = addNewProductModal.querySelector('form');
+      form.removeAttribute('action');
+      form.removeAttribute('method');
+      form.setAttribute('id', productId)
+
+      const updateProductButtons = addNewProductModal.querySelector('button.btn-success');
+      updateProductButtons.textContent = "Actualizar";
+      updateProductButtons.addEventListener('click', updateProductOnClickEvent);
     }
-  });
-};
+  })
+}

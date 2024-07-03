@@ -36,14 +36,14 @@
         }
 
         & button {
-            display: block;
+            display: none;
             margin: 1.5rem auto;
         }
     }
 
     .boton_reserva {
-        display: block;
-        margin: 0 auto;
+        display: table;
+        margin: 4rem auto;
     }
 
     .servicios__turnos_calendario {

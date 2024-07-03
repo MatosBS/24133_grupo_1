@@ -1,7 +1,6 @@
 import { addItemToProductsArray, removeEntireItemFromProductsArray, removeItemFromProductsArray } from './cartFunctions.js';
 import { contactoPageElements, productsPageElements } from './dom.js';
 import { getAppliedFilters, getTotalAmountInCart, updateAmountInHeader, updateQuantityFromProductInUI, displayFieldError, hideFieldError } from './functions.js';
-import { modalFunctions } from './modalFunctions.js';
 import { templates } from './templates.js';
 
 export function filterProductsEvent() {
@@ -60,17 +59,17 @@ export function updateProductOnClickEvent(e) {
     e.preventDefault();
 
     const form = e.currentTarget.closest('form');
-    const productInForm = modalFunctions.getValuesFromForm(form);
+    const productId = form.getAttribute('id');
       
     const body = {
-        name: productInForm.name,
-        price: productInForm.price,
-        stock: productInForm.stock,
-        category: productInForm.category
+        name: form.querySelector('input[name="name"]').value,
+        price: form.querySelector('input[name="price"]').value,
+        stock: form.querySelector('input[name="stock"]').value,
+        category: form.querySelector('select[name="category"] option[selected]:not([disabled])').value
     };
 
-    const url = 'https://pinkaonline.onrender.com/products/' + productInForm.id;
-    // const url = 'http://localhost:8080/products/' + productInForm.id;
+    const url = 'https://pinkaonline.onrender.com/products/' + productoId;
+    // const url = 'http://localhost:8080/products/' + productId;
     fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),
@@ -101,13 +100,13 @@ const errorCheck = (error) => {
     if (error.error_code === 1 ||
         error.error_code === 3 ||
         error.error_code === 10)
-        alert(error.error_desc);
+        alert(error.error_desc)
 
     if (error.error_code === 0) {
         alert(error.desc)
         window.location.reload();
-    };
-};
+    }
+}
 
 export function removeEntireProductFromCartEvent(e) {
     let productId = parseInt(e.currentTarget.closest('div.cart-products-item').id);
@@ -171,4 +170,4 @@ export function validateFormEvent(e) {
     } else {
         alert('Por favor, complete todos los campos');
     };
-};
+}

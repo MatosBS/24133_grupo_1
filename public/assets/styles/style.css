@@ -36,6 +36,12 @@ a, li {
     list-style: none;
 }
 
+h1 {
+    font-size: var(--letra-xxl);
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
 .buttons {
     padding: 1rem;
     background-color: var(--color-inputs);
@@ -322,20 +328,70 @@ footer {
         .about-us, .what-we-do, .testimonials {
             margin: 20px;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: var(--color-primario);
             border-radius: 10px;
             text-align: left;
-            margin: 10px;
+            margin: 1rem;
             font-size: var(--letra-mediana);
         }
         
         .about-us h2, .what-we-do h2{
             color: var(--color-inputs);
             font-size: var(--letra-grande);
-            
+            font-weight: bold;
+            margin-bottom: 2rem;
         }
 
         .plus {
             width: auto;
         }
+
+        .boton-container {
+            background-color: #9bacbb;
+            width: 100%;
+        }
+
+        .buttons-addProduct {
+            font-size: 12px;
+            color: black;
+            background-color: #9bacbb;
+            margin-left: 23px;
+            padding: 0 12px;
+        }
+
+        .buttons-addProduct:hover {
+            background-color: var(--color-primario);
+            border-color: white;
+        }
+
+        .table_container {
+            width: 80%;
+            margin: auto;
+        }
+
+        .tr, .td {
+            font-size: 12px;
+            
+        }
+
+        table {
+            background-color: aqua;
+        }
+
+        .table {
+            background-color: rgba(255, 255, 255, 0.274) !important ;
+        }
+
+        .table_container td, .table_container tr {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table_container button {
+            margin: 1rem;
+        }
+
+        /* .area-table {
+            border: #4E383A 1px solid;
+        } */
 }
