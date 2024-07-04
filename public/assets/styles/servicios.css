@@ -36,14 +36,14 @@
         }
 
         & button {
-            display: block;
+            display: none;
             margin: 1.5rem auto;
         }
     }
 
     .boton_reserva {
-        display: block;
-        margin: 0 auto;
+        display: table;
+        margin: 4rem auto;
     }
 
     .servicios__turnos_calendario {
@@ -64,7 +64,7 @@
             & .calendario__inicio {
                 grid-column-start: 3;
             }
-            
+
         }
     }
 
@@ -110,9 +110,10 @@
         justify-content: center;
     }
 
-    .servicios__turnos_calendario, .servicios__turnos_horarios {
+    .servicios__turnos_calendario,
+    .servicios__turnos_horarios {
         & ol {
-            gap:2rem;
+            gap: 2rem;
         }
     }
 }
