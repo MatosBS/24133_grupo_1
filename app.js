@@ -8,9 +8,22 @@ const PORT = process.env.PORT || 8080;
 
 const app = express();
 
-app.use(cors({
-  origin: 'https://pinkaonline.onrender.com',
-}));
+var corsOptions = {
+  origin: function (origin, callback) {
+    callback(null, true);
+  },
+  methods: "GET, HEAD, PUT, DELETE, POST",
+  preflightContinue: false,
+  credentials: true,
+  optionSuccessStatus: 200,
+  exposedHeaders: ["Content-Disposition"]
+};
+app.use(cors(corsOptions));
+
+
+// app.use(cors({
+//   origin: 'https://pinkaonline.onrender.com',
+// }));
 
 app.use(express.static('public'));
 
